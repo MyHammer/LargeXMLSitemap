@@ -19,7 +19,7 @@
  * @author     Jan Christiansen <christiansen@myhammer.de>
  */
 
-require_once ('../init/init.main.php');
+require_once('../init/init.main.php');
 set_time_limit(0);
 
 // init the config
@@ -29,7 +29,7 @@ cXmlSitemapConfig::loadConfig();
 // creates a creator object for fast writing (cant read/edit existing XML Files)
 $oSitemapCreator = new cXmlSitemapGeneratorWrite(
 	cXmlSitemapConfig::getSitemapFilename('items'),
-	cXmlSitemapConfig::bCompress,
+	TRUE,
 	cXmlSitemapConfig::getSitemapDirectoryPath()
 );
 
@@ -41,13 +41,13 @@ $oSitemapCreator->open();
 
 // Get shop articles
 $aItemIds = array();
-for ($i = 0; $i<1000; $i++) {
+for ($i = 0; $i<50000; $i++) {
 	$aItemIds[] = $i;
 }
 
 foreach ($aItemIds as $iItemId) {
 	$oSitemapCreator->addUrl(
-		'http://www.example.com/shop/item/'.$iItemId,
+		'http://smoon.bhn-media.de/shop/item/very/long/url/because/we/need/to/create/a/big/sitemap/without/reaching/the/50000/urls/limit/'.$iItemId,
 		null,
 		cXmlSitemap::changeFreqHourly,
 		0.8
@@ -60,4 +60,3 @@ $oSitemapCreator->save();
 // Add sitemap to index
 $oSitemapCreator->updateSitemapIndex(cXmlSitemapConfig::getSitemapDirectoryPath().cXmlSitemapConfig::getSitemapIndexFilename());
 
-?>

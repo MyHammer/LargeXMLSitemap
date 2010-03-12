@@ -21,6 +21,7 @@
 
 /**
  * Sitemap Index Class
+ * Creates the index file
  * 
  * @package LargeXMLSitemap
  * @subpackage Index

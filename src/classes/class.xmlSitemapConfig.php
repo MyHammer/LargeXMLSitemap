@@ -22,7 +22,9 @@
 /**
  * Class for holding configuration information
  * Thats the place where you can put your own config things.
- * This class is not used inside the other classes, so you don't it.
+ * This class is completely optional and not used inside the other classes
+ * so there is no need for you to use it.
+ * i just wanted to create a single place for config things for all scripts that create sitmaps
  * 
  * @package LargeXMLSitemap
  * @subpackage Config
@@ -46,7 +48,7 @@ class cXmlSitemapConfig {
 	/**
 	 * path where the sitemaps are stored
 	 */
-	const sSitemapDirectory = "/var/tmp/sitemaps/";
+	const sSitemapDirectory = "./";
 	
 	/**
 	 * Prefix for all content (but not index) sitemap files

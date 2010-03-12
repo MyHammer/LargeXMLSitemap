@@ -30,7 +30,7 @@ cXmlSitemapConfig::loadConfig();
 // creates a creator object for fast writing (cant read/edit existing XML Files)
 $oSitemapCreator = new cXmlSitemapGenerator(
 	cXmlSitemapConfig::getSitemapFilename('items'),
-	cXmlSitemapConfig::bCompress,
+	TRUE,
 	cXmlSitemapConfig::getSitemapDirectoryPath()
 );
 

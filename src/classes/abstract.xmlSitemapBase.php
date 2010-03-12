@@ -98,11 +98,11 @@ abstract class cXmlSitemapBase {
 			throw new Exception("File ".$sFileName." not found");
 		}
 		
-		$this->bCompressed = $this->checkCompresseion($sFileName);
+		$this->bCompressed = $this->checkCompression($sFileName);
 		if($this->bCompressed) {
-			$this->openCompressed($sFileName);
+			$this->loadFromCompressed($sFileName);
 		} else {
-			$this->openUncompressed($sFileName);
+			$this->loadFromUncompressed($sFileName);
 		}
 	}
 	
@@ -111,7 +111,7 @@ abstract class cXmlSitemapBase {
 	 * 
 	 * @param string $sFilename
 	 */
-	public function openUncompressed($sFilename) {
+	public function loadFromUncompressed($sFilename) {
 		$this->oDocument->preserveWhiteSpace = false;
 		$this->oDocument->load($sFilename);
 		$this->createDOMObject();
@@ -123,7 +123,7 @@ abstract class cXmlSitemapBase {
 	 * @param mixed $sFileName
 	 * @throws Exception
 	 */
-	public function openCompressed($sFileName) {
+	public function loadFromCompressed($sFileName) {
 		$rGzFile = gzopen($sFileName, "rb");
 		if ($rGzFile === false) {
 			throw new Exception("Could not open file $sFileName for reading");
@@ -133,11 +133,23 @@ abstract class cXmlSitemapBase {
 		while (!feof($rGzFile)) {
 			$sXML .= gzread($rGzFile, 8192);
 		}
+		$this->createDOMFromString($sXML);
+	}
+
+	/**
+	 * creates the internal DOM objects from a XML String
+	 *
+	 * @access protected
+	 * @param string $sXML
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function createDOMFromString($sXML) {
 		$this->oDocument->preserveWhiteSpace = false;
 		$this->oDocument->loadXML($sXML);
 		$this->createDOMObject();
 	}
-	
+
 	/**
 	 * returns true if $sFilename is a compressed file and false if not
 	 * 
@@ -146,7 +158,7 @@ abstract class cXmlSitemapBase {
 	 * @param string $sFilename
 	 * @return bool
 	 */
-	public function checkCompresseion($sFilename) {
+	public function checkCompression($sFilename) {
 		// checks if the last 3 chars are .gz
 		return (substr($sFilename, -3) == '.gz') ? true : false;
 	}
@@ -159,10 +171,9 @@ abstract class cXmlSitemapBase {
 	private function createDOMObject() {
 		$oRootNode = $this->oDocument->getElementsByTagName($this->sRootNodeName)->item(0);
 		if ($oRootNode == NULL) {
-			throw new Exception("File ".$sFileName." is not valid (<".$this->sRootNodeName."> missing)");
+			throw new Exception("DOM not valid (<".$this->sRootNodeName."> missing)");
 		}
 		$this->oRootNode = $oRootNode;
-		//$this->oDocument->appendChild($this->oRootNode);
 	}
 	
 	/**
