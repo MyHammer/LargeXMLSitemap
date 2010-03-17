@@ -32,10 +32,7 @@ The sitemap filenames get a counter starting with 0.
 
 ## Create new Sitemap files
 Create a new Generator Object
-$oSitemapCreator = new cXmlSitemapGeneratorWrite(
-	FILENAME,
-	SAVE COMPRESSED,
-	PATH WHERE SITEMAP FILES SHOULD BE SAVED);
+$oSitemapCreator = new cXmlSitemapGeneratorWrite(FILENAME, SAVE COMPRESSED, PATH);
 
 Delete the current files
 $oSitemapCreator->deleteCurrent();
