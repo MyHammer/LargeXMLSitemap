@@ -32,24 +32,24 @@ The sitemap filenames get a counter starting with 0.
 
 ## Create new Sitemap files
 Create a new Generator Object
-$oSitemapCreator = new cXmlSitemapGeneratorWrite(FILENAME, SAVE COMPRESSED, PATH);
+	$oSitemapCreator = new cXmlSitemapGeneratorWrite(FILENAME, SAVE COMPRESSED, PATH);
 
 Delete the current files
-$oSitemapCreator->deleteCurrent();
+	$oSitemapCreator->deleteCurrent();
 
 Open the first file
-$oSitemapCreator->open();
+	$oSitemapCreator->open();
 
 Add some URLs to the Sitemap
-$oSitemapCreator->addUrl(URL, Last modification time, change frequency, priority)
-$oSitemapCreator->addUrl(URL, Last modification time, change frequency, priority)
-$oSitemapCreator->addUrl(URL, Last modification time, change frequency, priority)
+	$oSitemapCreator->addUrl(URL, Last modification time, change frequency, priority)
+	$oSitemapCreator->addUrl(URL, Last modification time, change frequency, priority)
+	$oSitemapCreator->addUrl(URL, Last modification time, change frequency, priority)
 
 Close the generator and save the last sitemap file
-$oSitemapCreator->save();
+	$oSitemapCreator->save();
 
 Update the sitemap index
-$oSitemapCreator->updateSitemapIndex(Path to Sitemap Indexfile);
+	$oSitemapCreator->updateSitemapIndex(Path to Sitemap Indexfile);
 
 # Authors
 Jan Christiansen
