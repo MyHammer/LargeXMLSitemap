@@ -17,7 +17,7 @@
  * @package    MyHammer XML Sitemap Framework
  * @subpackage Config
  * @copyright  Copyright (c) 2009 MY-HAMMER Aktiengesellschaft (http://www.myhammer.de)
- * @license    http://www.myhammer.de/opensource/license/gpl.txt GNU General Public License Version 2
+ * @license    http://www.myhammer.de/opensource/license/gpl.txt GNU General Public License Version 3
  * @version    1.0
  * @author     Jan Christiansen <christiansen@myhammer.de>
  */
