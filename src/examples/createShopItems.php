@@ -47,7 +47,7 @@ for ($i = 0; $i<50000; $i++) {
 
 foreach ($aItemIds as $iItemId) {
 	$oSitemapCreator->addUrl(
-		'http://smoon.bhn-media.de/shop/item/very/long/url/because/we/need/to/create/a/big/sitemap/without/reaching/the/50000/urls/limit/'.$iItemId,
+		'http://jc.bhn-media.de/shop/item/very/long/url/because/we/need/to/create/a/big/sitemap/without/reaching/the/50000/urls/limit/'.$iItemId,
 		null,
 		cXmlSitemap::changeFreqHourly,
 		0.8
