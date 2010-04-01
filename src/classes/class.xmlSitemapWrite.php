@@ -20,7 +20,7 @@
  */
 
 /**
- * Sitemap Class which can only write to new sitemap files, but a lot of faster then cXmlSitemap
+ * Sitemap Class which can only write to new sitemap files, but a lot faster then cXmlSitemap
  * 
  * @package LargeXMLSitemap
  * @subpackage Sitemap

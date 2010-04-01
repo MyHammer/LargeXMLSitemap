@@ -224,23 +224,8 @@ abstract class cXmlSitemapGeneratorBase {
 		if ($bForceCompression == true) {
 			$sCompressionEnding = '.gz';
 		}
-		
-		if (file_exists($sIndexFilename.$sCompressionEnding)) {
-			$oSitemapIndex = new cXmlSitemapIndex();
-			$oSitemapIndex->open($sIndexFilename.$sCompressionEnding);
-		} else {
-			$oSitemapIndex = new cXmlSitemapIndex();
-		}
 
-		foreach ($this->aSitemaps as $aSitemap) {
-			$oSitemapIndex->addSitemap($this->sSitemapsBaseUrl.$aSitemap['loc'], $aSitemap['lastmod']);
-		}
-		
-		if ($bForceCompression == true) {
-			$oSitemapIndex->saveCompressed($sIndexFilename.".gz");
-		} else {
-			$oSitemapIndex->saveUncompressed($sIndexFilename);
-		}
+		cXmlSitemapIndex::updateSitemapIndex($this->aSitemaps, $sIndexFilename.$sCompressionEnding, $bForceCompression);
 	}
 	
 	/**

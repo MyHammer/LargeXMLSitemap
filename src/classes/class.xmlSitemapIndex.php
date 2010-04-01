@@ -65,7 +65,7 @@ class cXmlSitemapIndex extends cXmlSitemapBase {
 	}
 	
 	/**
-	 * adds sitemaps $aSitemaps to index $sFilename. if index doesnt exists it will be created
+	 * Adds sitemaps $aSitemaps to index $sFilename. If index doesn't exists it will be created.
 	 * 
 	 * @param string $aSitemaps
 	 * @param string $sFilename
@@ -83,7 +83,7 @@ class cXmlSitemapIndex extends cXmlSitemapBase {
 		if ($bSaveCompressed == true) {
 			$oSitemapIndex->saveCompressed($sFilename);
 		} else {
-			$oSitemapIndex->save($sFilename);
+			$oSitemapIndex->saveUncompressed($sFilename);
 		}
 	}
 	

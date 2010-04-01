@@ -170,7 +170,7 @@ class cXmlSitemapBenchmark {
 	private function generateUrls() {
 		$this->aUrls = array();
 		for ($i = 0; $i < $this->iNumOfUrls; $i++) {
-			$this->aUrls[] = $i;
+			$this->aUrls[] = 'http://www.google.de/boring/url'.$i;
 		}
 	}
 }
