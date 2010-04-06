@@ -21,7 +21,7 @@
 
 require_once('../classes/abstract.xmlSitemapBase.php');
 require_once('../classes/abstract.xmlSitemapGeneratorBase.php');
-require_once('../classes/abstract.xmlSitemapIndex.php');
+require_once('../classes/class.xmlSitemapIndex.php');
 require_once('../classes/class.xmlSitemap.php');
 require_once('../classes/class.xmlSitemapConfig.php');
 require_once('../classes/class.xmlSitemapGenerator.php');
